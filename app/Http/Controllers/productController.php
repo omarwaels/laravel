@@ -21,6 +21,13 @@ class productController extends Controller
         }
         if (($request->get('update')== '0') ){
 
+
+            $this->validate($request,[
+                'updatedname' => 'required',
+                'updatedcategory' => 'required',
+                'updatedprice' => 'required'
+
+            ]);
             $updateProduct = product::find($request->get('id'));
             $updateProduct->name = $request->get('updatedname');
             $updateProduct->category_id = $request->get('updatedcategory');

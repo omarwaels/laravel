@@ -5,58 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 
+<form class="container">
+  <div class="mt-2 mb-1">
 
-<form action="" method="get">
-    <label for="name">name</label>
-    <input type="text" name="name" >
-    <label for="category">category</label>
-    <input type="text" name="category" >
-    <label for="price">price</label>
-    <input type="text" name="price" >
-    <br>
-    <input type="submit">
+    <input placeholder="name" type="text" name="name" class="form-control">
 
+  </div>
+  <div class="mb-1">
+
+    <input placeholder="category" type="text" name="category" class="form-control">
+  </div>
+
+  <div class="mb-1">
+
+    <input placeholder="price" type="text" name="price" class="form-control">
+  </div>
+
+
+    <div class="text-center">
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 </form>
-<table>
-  <tr>
+<br>
+<table class="container table table-success table-striped">
+  <tbody><tr>
     <th>id</th>
     <th>name</th>
     <th>category</th>
     <th>price</th>
-    <th>Operatin</th>
+    <th>Operation</th>
   </tr>
-  @foreach($products as $product)
-  <tr>
-    <td>{{$product['id']}}</td>
-    <td>{{$product['name']}}</td>
-    <td>{{$product['category_id']}}</td>
-    <td>{{$product['price']}}</td>
+    <tr>
+    <td>17</td>
+    <td>trousera</td>
+    <td>clotha</td>
+    <td>350</td>
     <td>
+        <div class="text-center">
 
-        <a href="http://ecommerce.test/?id=<?php echo $product['id'];?>">Remove</a>
-        <a href="http://ecommerce.test/?id=<?php echo $product['id'];?>&update=1">Modify</a>
+            <a class="btn btn-danger" href="http://ecommerce.test/?id=17">Remove</a>
+            <a class="btn btn-success" href="http://ecommerce.test/?id=17&amp;update=1">Modify</a>
+        </div>
 
     </td>
   </tr>
-  @endforeach
+    <tr>
+    <td>19</td>
+    <td>megz</td>
+    <td>megz</td>
+    <td>megz</td>
+    <td>
+        <div class="text-center">
+
+            <a class="btn btn-danger" href="http://ecommerce.test/?id=19">Remove</a>
+            <a class="btn btn-success" href="http://ecommerce.test/?id=19&amp;update=1">Modify</a>
+        </div>
+
+    </td>
+  </tr>
 
 
-</table>
+</tbody></table>
 <br>
-@if(isset($updateProduct))
-<form action="http://ecommerce.test" method="get">
-<input type="text" name="updatedname" value="<?php echo $updateProduct["name"];?>">
-  <input type="text" name="updatedcategory" value="<?php echo $updateProduct["category_id"];?>">
-  <input type="text" name="updatedprice" value="<?php echo $updateProduct["price"];?>">
-  <input type="hidden" name="update" value="0">
-  <input type="hidden" name="id" value="<?php echo $updateProduct["id"];?>">
-  <br>
-  <button type="submit">Save</button>
-  </form>
-@endif
+
+
+
 
 </body>
 </html>
